@@ -18,12 +18,14 @@ test.afterEach(async({page}, testInfo) => {
     }
 });
 
+//Checks the title
 test('has title', async ({page}) => {
     await page.goto('https://the-internet.herokuapp.com/');
 
     await expect(page).toHaveTitle(/The Internet/);
 });
 
+//Is heading on main page visible
 test('has heading', async ({page}) => {
     await page.goto('https://the-internet.herokuapp.com/');
 
