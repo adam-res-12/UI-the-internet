@@ -31,3 +31,12 @@ test('has heading', async ({page}) => {
 
     await expect(page.getByRole('heading', {name: 'Welcome to the-internet'})).toBeVisible();
 });
+
+//Checkboxes
+test('checkboxes', async ({page}) => {
+    await page.goto('https://the-internet.herokuapp.com/');
+
+    await page.getByRole('link', {name:'Checkboxes'}).click();
+
+    await expect(page.getByRole('heading', {name:'Checkboxes'})).toBeVisible();
+});
