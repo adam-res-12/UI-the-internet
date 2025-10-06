@@ -32,11 +32,24 @@ test('has heading', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'Welcome to the-internet'})).toBeVisible();
 });
 
-//Checkboxes
-test('checkboxes', async ({page}) => {
+//Checkbox1 - check the box, then check if checked
+test('checkbox1', async ({page}) => {
     await page.goto('https://the-internet.herokuapp.com/');
 
     await page.getByRole('link', {name:'Checkboxes'}).click();
 
-    await expect(page.getByRole('heading', {name:'Checkboxes'})).toBeVisible();
+    await page.getByRole('checkbox').first().check();
+
+    await expect(page.getByRole('checkbox').first()).toBeChecked();
+});
+
+//Checkbox2 - uncheck the box, then chekc if not checked
+test('checkbox2', async ({page}) => {
+    await page.goto('https://the-internet.herokuapp.com/');
+
+    await page.getByRole('link', {name:'Checkboxes'}).click();
+
+    await page.getByRole('checkbox').nth(1).uncheck();
+
+    await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
 });
