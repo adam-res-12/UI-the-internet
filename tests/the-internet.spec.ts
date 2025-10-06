@@ -43,7 +43,7 @@ test('checkbox1', async ({page}) => {
     await expect(page.getByRole('checkbox').first()).toBeChecked();
 });
 
-//Checkbox2 - uncheck the box, then chekc if not checked
+//Checkbox2 - uncheck the box, then check if not checked
 test('checkbox2', async ({page}) => {
     await page.goto('https://the-internet.herokuapp.com/');
 
