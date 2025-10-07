@@ -56,10 +56,18 @@ test('dragA', async ({page}) => {
 });
 
 //Dropdown - select first option from dropdown list, then checks if the option is now in the box
-test('dropdownMenu', async ({page}) => {
+test('dropdownOption1', async ({page}) => {
     await page.getByRole('link', {name: 'Dropdown'}).click();
 
     await page.locator('#dropdown').selectOption({value: '1'});
 
     await expect(page.locator('#dropdown')).toHaveValue('1');
+});
+
+test('dropdownOption2', async ({page}) => {
+    await page.getByRole('link', {name: 'Dropdown'}).click();
+
+    await page.locator('#dropdown').selectOption({value: '2'});
+
+    await expect(page.locator('#dropdown')).toHaveValue('2');
 });
