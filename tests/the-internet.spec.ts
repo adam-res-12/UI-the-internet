@@ -104,5 +104,5 @@ test('addElement', async ({page}) => {
 
     await page.getByRole('button', {name: 'Add Element'}).click();
 
-    await expect(page.locator('#result')).toHaveText('You entered: Q');
+    await expect(page.getByRole('button', {name: 'Delete'})).toBeVisible();
 });
