@@ -37,7 +37,7 @@ test('checkbox1', async ({page}) => {
     await page.goto('https://the-internet.herokuapp.com/');
 
     await page.getByRole('link', {name:'Checkboxes'}).click();
-
+    
     await page.getByRole('checkbox').first().check();
 
     await expect(page.getByRole('checkbox').first()).toBeChecked();
@@ -52,4 +52,15 @@ test('checkbox2', async ({page}) => {
     await page.getByRole('checkbox').nth(1).uncheck();
 
     await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
+});
+
+//Drag and drop - drag box A to box B position, then checks if the first location now has a box with 'B' in it
+test('dragA', async ({page}) => {
+    await page.goto('https://the-internet.herokuapp.com/');
+
+    await page.getByRole('link', {name: 'Drag and Drop'}).click();
+
+    await page.locator('#column-a.column').dragTo(page.locator('#column-b.column'));
+
+    await expect(page.locator('#column-a.column')).toHaveText('B');
 });
