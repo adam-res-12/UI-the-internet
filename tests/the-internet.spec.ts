@@ -128,3 +128,30 @@ test('deleteElement', async ({page}) => {
 
     await expect(page.getByRole('button', {name: 'Delete'})).toHaveCount(0);
 });
+
+//Entry Ad - check ad/modal window appears when clicking on link
+// close ad/modal window, then check it's no longer there
+// close ad/modal window and re-enable, then check that ad/modal window is showing again
+test('firstEntry', async ({page}) => {
+    await page.getByRole('link', {name: 'Entry Ad'}).click();
+
+    await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
+});
+
+test('closeModal', async ({page}) => {
+    await page.getByRole('link', {name: 'Entry Ad'}).click();
+
+    await page.getByText('Close', {exact: true}).click();
+
+    await expect(page.getByRole('heading', {name: 'This is modal window'})).not.toBeVisible();
+});
+
+test('re-enableAd', async ({page}) => {
+    await page.getByRole('link', {name: 'Entry Ad'}).click();
+
+    await page.getByText('Close', {exact: true}).click();
+
+    await page.locator('#restart-ad').click();
+
+    await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
+});
