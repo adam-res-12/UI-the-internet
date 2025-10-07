@@ -155,3 +155,14 @@ test('re-enableAd', async ({page}) => {
 
     await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 });
+
+//Basic Auth - doesn't work - don't knwo how to fill in box at the moment
+test('signIn', async ({page}) => {
+    await page.getByRole('link', {name: 'Basic Auth'}).click();
+
+    await page.getByLabel('Username').fill('admin');
+
+    await page.getByLabel('Password').fill('admin');
+
+    await expect(page.getByRole('heading', {name: 'Basic Auth'})).toBeVisible();
+});
