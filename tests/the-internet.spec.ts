@@ -20,22 +20,16 @@ test.afterEach(async({page}, testInfo) => {
 
 //Checks the title
 test('has title', async ({page}) => {
-    await page.goto('https://the-internet.herokuapp.com/');
-
     await expect(page).toHaveTitle(/The Internet/);
 });
 
 //Is heading on main page visible
 test('has heading', async ({page}) => {
-    await page.goto('https://the-internet.herokuapp.com/');
-
     await expect(page.getByRole('heading', {name: 'Welcome to the-internet'})).toBeVisible();
 });
 
 //Checkbox1 - check the box, then check if checked
 test('checkbox1', async ({page}) => {
-    await page.goto('https://the-internet.herokuapp.com/');
-
     await page.getByRole('link', {name:'Checkboxes'}).click();
     
     await page.getByRole('checkbox').first().check();
@@ -45,8 +39,6 @@ test('checkbox1', async ({page}) => {
 
 //Checkbox2 - uncheck the box, then check if not checked
 test('checkbox2', async ({page}) => {
-    await page.goto('https://the-internet.herokuapp.com/');
-
     await page.getByRole('link', {name:'Checkboxes'}).click();
 
     await page.getByRole('checkbox').nth(1).uncheck();
@@ -56,8 +48,6 @@ test('checkbox2', async ({page}) => {
 
 //Drag and drop - drag box A to box B position, then checks if the first location now has a box with 'B' in it
 test('dragA', async ({page}) => {
-    await page.goto('https://the-internet.herokuapp.com/');
-
     await page.getByRole('link', {name: 'Drag and Drop'}).click();
 
     await page.locator('#column-a.column').dragTo(page.locator('#column-b.column'));
