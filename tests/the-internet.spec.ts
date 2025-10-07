@@ -54,3 +54,12 @@ test('dragA', async ({page}) => {
 
     await expect(page.locator('#column-a.column')).toHaveText('B');
 });
+
+//Dropdown
+test('dropdownMenu', async ({page}) => {
+    await page.getByRole('link', {name: 'Dropdown'}).click();
+
+    await page.locator('#dropdown').selectOption({value: '1'});
+
+    await expect(page.locator('#dropdown')).toHaveValue('1');
+});
