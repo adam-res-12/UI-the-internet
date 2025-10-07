@@ -55,7 +55,7 @@ test('dragA', async ({page}) => {
     await expect(page.locator('#column-a.column')).toHaveText('B');
 });
 
-//Dropdown
+//Dropdown - select first option from dropdown list, then checks if the option is now in the box
 test('dropdownMenu', async ({page}) => {
     await page.getByRole('link', {name: 'Dropdown'}).click();
 
