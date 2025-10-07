@@ -97,3 +97,12 @@ test('keyPressesQ', async ({page}) => {
 
     await expect(page.locator('#result')).toHaveText('You entered: Q');
 });
+
+//Add/Remove Elements
+test('addElement', async ({page}) => {
+    await page.getByRole('link', {name: 'Add/Remove Elements'}).click();
+
+    await page.getByRole('button', {name: 'Add Element'}).click();
+
+    await expect(page.locator('#result')).toHaveText('You entered: Q');
+});
