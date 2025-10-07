@@ -28,7 +28,8 @@ test('has heading', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'Welcome to the-internet'})).toBeVisible();
 });
 
-//Checkbox1 - check the box, then check if checked
+//Checkboxes - check box 1, then check if checked
+// uncheck box 2, then check if not checked
 test('checkbox1', async ({page}) => {
     await page.getByRole('link', {name:'Checkboxes'}).click();
     
@@ -37,7 +38,6 @@ test('checkbox1', async ({page}) => {
     await expect(page.getByRole('checkbox').first()).toBeChecked();
 });
 
-//Checkbox2 - uncheck the box, then check if not checked
 test('checkbox2', async ({page}) => {
     await page.getByRole('link', {name:'Checkboxes'}).click();
 
@@ -55,7 +55,8 @@ test('dragA', async ({page}) => {
     await expect(page.locator('#column-a.column')).toHaveText('B');
 });
 
-//Dropdown - select option1 from dropdown list, then checks if the option is now in the box/ then same for option2
+//Dropdown - select option1 from dropdown list, then checks if the option is now in the box
+// then same for option2
 test('dropdownOption1', async ({page}) => {
     await page.getByRole('link', {name: 'Dropdown'}).click();
 
@@ -81,7 +82,8 @@ test('redirection', async ({page}) => {
     await expect(page.getByRole('heading', {name:'Status Codes'})).toBeVisible();
 });
 
-//Key Presses - checks if pressing shift button in box results in 'You entered: SHIFT' output/ then same for Q
+//Key Presses - checks if pressing shift button in box results in 'You entered: SHIFT' output
+// then same for Q
 test('keyPressesSHIFT', async ({page}) => {
     await page.getByRole('link', {name: 'Key Presses'}).click();
 
@@ -98,11 +100,31 @@ test('keyPressesQ', async ({page}) => {
     await expect(page.locator('#result')).toHaveText('You entered: Q');
 });
 
-//Add/Remove Elements
+//Add/Remove Elements - add delete, then check its there
+// add 2 delete, then check for 2
+// add delete then remove, check delete is removed
 test('addElement', async ({page}) => {
     await page.getByRole('link', {name: 'Add/Remove Elements'}).click();
 
     await page.getByRole('button', {name: 'Add Element'}).click();
 
     await expect(page.getByRole('button', {name: 'Delete'})).toBeVisible();
+});
+
+test('add2Elements', async ({page}) => {
+    await page.getByRole('link', {name: 'Add/Remove Elements'}).click();
+
+    await page.getByRole('button', {name: 'Add Element'}).click({clickCount: 2});
+
+    await expect(page.getByRole('button', {name: 'Delete'})).toHaveCount(2);
+});
+
+test('deleteElement', async ({page}) => {
+    await page.getByRole('link', {name: 'Add/Remove Elements'}).click();
+
+    await page.getByRole('button', {name: 'Add Element'}).click();
+
+    await page.getByRole('button', {name: 'Delete'}).click();
+
+    await expect(page.getByRole('button', {name: 'Delete'})).toHaveCount(0);
 });
