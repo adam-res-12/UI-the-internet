@@ -71,3 +71,12 @@ test('dropdownOption2', async ({page}) => {
 
     await expect(page.locator('#dropdown')).toHaveValue('2');
 });
+
+//Redirection - checks that the redirect link takes you to the status codes page
+test('redirection', async ({page}) => {
+    await page.getByRole('link', {name: 'Redirect Link'}).click();
+
+    await page.locator('#redirect').click();
+
+    await expect(page.getByRole('heading', {name:'Status Codes'})).toBeVisible();
+});
