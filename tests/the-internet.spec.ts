@@ -81,11 +81,19 @@ test('redirection', async ({page}) => {
     await expect(page.getByRole('heading', {name:'Status Codes'})).toBeVisible();
 });
 
-//Key Presses - checks if pressing shift button in box results in 'You entered: SHIFT' output 
-test('keyPresses', async ({page}) => {
+//Key Presses - checks if pressing shift button in box results in 'You entered: SHIFT' output/ then same for Q
+test('keyPressesSHIFT', async ({page}) => {
     await page.getByRole('link', {name: 'Key Presses'}).click();
 
     await page.locator('#target').press('Shift');
 
     await expect(page.locator('#result')).toHaveText('You entered: SHIFT');
+});
+
+test('keyPressesQ', async ({page}) => {
+    await page.getByRole('link', {name: 'Key Presses'}).click();
+
+    await page.locator('#target').press('Q');
+
+    await expect(page.locator('#result')).toHaveText('You entered: Q');
 });
