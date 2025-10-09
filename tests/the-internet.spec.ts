@@ -62,7 +62,6 @@ test('deleteElement', async ({page}) => {
 // signIn - puts username and password into url to sign in, then checks heading that only appears after sign in
 test('signIn', async ({page}) => {
     const username = 'admin';
-
     const password = 'admin';
 
     await page.goto(`https://${username}:${password}@the-internet.herokuapp.com/basic_auth`);
