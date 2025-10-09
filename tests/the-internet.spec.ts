@@ -174,3 +174,16 @@ test('redirection', async ({page}) => {
 
     await expect(page.getByRole('heading', {name:'Status Codes'})).toBeVisible();
 });
+
+//Exit Intent
+// exitViewport - should move cursor so mouseleave event occurs and modal windows pops up, but that's not working
+//test('exitViewport', async ({page}) => {
+    //await page.getByRole('link', {name: 'Exit Intent'}).click();
+
+    //await page.mouse.move(100, 100);
+
+    //await page.mouse.move(10000, 10000);
+
+    //await expect(page.getByRole('heading', {name: 'This is a modl window'})).toBeVisible();
+
+//});
