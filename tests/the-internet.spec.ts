@@ -158,11 +158,11 @@ test('re-enableAd', async ({page}) => {
 
 //Basic Auth - doesn't work - don't know how to fill in box at the moment
 test('signIn', async ({page}) => {
-    await page.getByRole('link', {name: 'Basic Auth'}).click();
+    const username = 'admin';
 
-    await page.getByLabel('Username').fill('admin');
+    const password = 'admin';
 
-    await page.getByLabel('Password').fill('admin');
+    await page.goto(`https://${username}:${password}@the-internet.herokuapp.com/basic_auth`);
 
     await expect(page.getByRole('heading', {name: 'Basic Auth'})).toBeVisible();
 });
