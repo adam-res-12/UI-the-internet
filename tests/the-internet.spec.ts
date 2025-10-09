@@ -70,6 +70,52 @@ test('signIn', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'Basic Auth'})).toBeVisible();
 });
 
+//Broken Images
+// brokenImage_asdf - checks if image is there/is still loading or has failed to load
+// brokenImage_hjkl - then same for hjkl
+// brokenImage_img/avatar-blank - then same for img_avatar-blank
+test('brokenImage_asdf', async ({page}) => {
+    await page.getByRole('link', {name:'Broken Images'}).click();
+
+    await page.waitForSelector('img');
+
+    const checkImage = await page.evaluate(() => {
+        const image = document.querySelector('img[src*="asdf.jpg"]') as HTMLImageElement;
+        if (!image) return true;
+        return !image.complete || image.naturalWidth === 0;
+    });
+
+    expect(checkImage).toBe(true);
+});
+
+test('brokenImage_hjkl', async ({page}) => {
+    await page.getByRole('link', {name:'Broken Images'}).click();
+
+    await page.waitForSelector('img');
+
+    const checkImage = await page.evaluate(() => {
+        const image = document.querySelector('img[src*="hjkl.jpg"]') as HTMLImageElement;
+        if (!image) return true;
+        return !image.complete || image.naturalWidth === 0;
+    });
+
+    expect(checkImage).toBe(true);
+});
+
+test('brokenImage_img/avatar-blank', async ({page}) => {
+    await page.getByRole('link', {name:'Broken Images'}).click();
+
+    await page.waitForSelector('img');
+
+    const checkImage = await page.evaluate(() => {
+        const image = document.querySelector('img[src*="img/avatar-blank.jpg"]') as HTMLImageElement;
+        if (!image) return true;
+        return !image.complete || image.naturalWidth === 0;
+    });
+
+    expect(checkImage).toBe(true);
+});
+
 //Checkboxes 
 // checkbox1 - check box 1, then check if checked
 // checkbox2 - uncheck box 2, then check if not checked
