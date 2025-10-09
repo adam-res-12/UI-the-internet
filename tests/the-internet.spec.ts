@@ -191,6 +191,46 @@ test('re-enableAd', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 });
 
+//Form Authentication/ Login Page
+// login - attempt login with correct info, then check if it takes you to the secure area
+// wrongUsername - attempt login with wrong username, then check if wrong username alert shows
+// wrongPassword - attempt login with wrong password, then check if wrong password alert shows
+test('login', async ({page}) => {
+    await page.getByRole('link', {name: 'Form Authentication'}).click();
+
+    await page.locator('#username').fill('tomsmith');
+
+    await page.locator('#password').fill('SuperSecretPassword!');
+
+    await page.getByRole('button', {name: 'Login'}).click();
+
+    await expect(page.locator('#flash')).toContainText('You logged into a secure area!');
+});
+
+test('wrongUsername', async ({page}) => {
+    await page.getByRole('link', {name: 'Form Authentication'}).click();
+
+    await page.locator('#username').fill('qwerty');
+
+    await page.locator('#password').fill('SuperSecretPassword!');
+
+    await page.getByRole('button', {name: 'Login'}).click();
+
+    await expect(page.locator('#flash')).toContainText('Your username is invalid!');
+});
+
+test('wrongPassword', async ({page}) => {
+    await page.getByRole('link', {name: 'Form Authentication'}).click();
+
+    await page.locator('#username').fill('tomsmith');
+
+    await page.locator('#password').fill('qwerty');
+
+    await page.getByRole('button', {name: 'Login'}).click();
+
+    await expect(page.locator('#flash')).toContainText('Your password is invalid!');
+});
+
 //Key Presses 
 // keyPressesSHIFT - checks if pressing shift button in box results in 'You entered: SHIFT' output
 // keyPressesQ - then same for Q
@@ -217,7 +257,7 @@ test('redirection', async ({page}) => {
 
     await page.locator('#redirect').click();
 
-    await expect(page.getByRole('heading', {name:'Status Codes'})).toBeVisible();
+    await expect(page.getByRole('heading', {name: 'Status Codes'})).toBeVisible();
 });
 
 //Exit Intent
