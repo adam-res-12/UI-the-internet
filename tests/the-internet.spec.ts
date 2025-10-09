@@ -28,9 +28,10 @@ test('has heading', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'Welcome to the-internet'})).toBeVisible();
 });
 
-//Add/Remove Elements - add delete, then check its there
-// add 2 delete, then check for 2
-// add delete then remove, check delete is removed
+//Add/Remove Elements
+// addElement - add delete, then check its there
+// add2Elements - add 2 delete, then check for 2
+// deleteElement - add delete then remove, check delete is removed
 test('addElement', async ({page}) => {
     await page.getByRole('link', {name: 'Add/Remove Elements'}).click();
 
@@ -57,7 +58,8 @@ test('deleteElement', async ({page}) => {
     await expect(page.getByRole('button', {name: 'Delete'})).toHaveCount(0);
 });
 
-//Basic Auth - puts username and password into url to sign in, then checks heading that only appears after sign in
+//Basic Auth
+// signIn - puts username and password into url to sign in, then checks heading that only appears after sign in
 test('signIn', async ({page}) => {
     const username = 'admin';
 
@@ -68,8 +70,9 @@ test('signIn', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'Basic Auth'})).toBeVisible();
 });
 
-//Checkboxes - check box 1, then check if checked
-// uncheck box 2, then check if not checked
+//Checkboxes 
+// checkbox1 - check box 1, then check if checked
+// checkbox2 - uncheck box 2, then check if not checked
 test('checkbox1', async ({page}) => {
     await page.getByRole('link', {name:'Checkboxes'}).click();
     
@@ -86,7 +89,8 @@ test('checkbox2', async ({page}) => {
     await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
 });
 
-//Drag and drop - drag box A to box B position, then checks if the first location now has a box with 'B' in it
+//Drag and drop
+// dragA - drag box A to box B position, then checks if the first location now has a box with 'B' in it
 test('dragA', async ({page}) => {
     await page.getByRole('link', {name: 'Drag and Drop'}).click();
 
@@ -95,8 +99,9 @@ test('dragA', async ({page}) => {
     await expect(page.locator('#column-a.column')).toHaveText('B');
 });
 
-//Dropdown - select option1 from dropdown list, then checks if the option is now in the box
-// then same for option2
+//Dropdown 
+// dropdownOption1 - select option1 from dropdown list, then checks if the option is now in the box
+// dropdownOption2 - then same for option2
 test('dropdownOption1', async ({page}) => {
     await page.getByRole('link', {name: 'Dropdown'}).click();
 
@@ -113,9 +118,10 @@ test('dropdownOption2', async ({page}) => {
     await expect(page.locator('#dropdown')).toHaveValue('2');
 });
 
-//Entry Ad - check ad/modal window appears when clicking on link
-// close ad/modal window, then check it's no longer there
-// close ad/modal window and re-enable, then check that ad/modal window is showing again
+//Entry Ad 
+// firstEntry - check ad/modal window appears when clicking on link
+// closeModal - close ad/modal window, then check it's no longer there
+// re-enableAd - close ad/modal window and re-enable, then check that ad/modal window is showing again
 test('firstEntry', async ({page}) => {
     await page.getByRole('link', {name: 'Entry Ad'}).click();
 
@@ -140,8 +146,9 @@ test('re-enableAd', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 });
 
-//Key Presses - checks if pressing shift button in box results in 'You entered: SHIFT' output
-// then same for Q
+//Key Presses 
+// keyPressesSHIFT - checks if pressing shift button in box results in 'You entered: SHIFT' output
+// keyPressesQ - then same for Q
 test('keyPressesSHIFT', async ({page}) => {
     await page.getByRole('link', {name: 'Key Presses'}).click();
 
@@ -158,7 +165,8 @@ test('keyPressesQ', async ({page}) => {
     await expect(page.locator('#result')).toHaveText('You entered: Q');
 });
 
-//Redirection - checks that the redirect link takes you to the status codes page
+//Redirection 
+// redirection - checks that the redirect link takes you to the status codes page
 test('redirection', async ({page}) => {
     await page.getByRole('link', {name: 'Redirect Link'}).click();
 
