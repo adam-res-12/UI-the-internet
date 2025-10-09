@@ -184,6 +184,6 @@ test('redirection', async ({page}) => {
 
     //await page.mouse.move(10000, 10000);
 
-    //await expect(page.getByRole('heading', {name: 'This is a modl window'})).toBeVisible();
+    //await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 
 //});
