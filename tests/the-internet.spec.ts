@@ -134,6 +134,22 @@ test('checkbox2', async ({page}) => {
     await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
 });
 
+//Context Menu
+// contextMenu - right clicks to make js alert appear, then verify it did appear by checking message content
+test('contextMenu', async ({page}) => {
+    await page.getByRole('link', {name: 'Context Menu'}).click();
+
+    const dialogPromise = page.waitForEvent('dialog');
+
+    page.locator('#hot-spot').click({button: 'right'}); //removed await as it was getting stuck on the click
+
+    const dialog = await dialogPromise;
+
+    await dialog.accept();
+
+    await expect(dialog.message()).toBe('You selected a context menu');
+});
+
 //Drag and drop
 // dragA - drag box A to box B position, then checks if the first location now has a box with 'B' in it
 test('dragA', async ({page}) => {
