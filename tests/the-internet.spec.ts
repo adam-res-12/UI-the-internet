@@ -150,6 +150,32 @@ test('contextMenu', async ({page}) => {
     await expect(dialog.message()).toBe('You selected a context menu');
 });
 
+//Disappearing Elements
+// gallery - checks if gallery appears on 20 page loads, then prints number of appearances and no appearances
+//could just have it end if nogalleryCount > 0
+test('gallery', async ({page}) => {
+    await page.getByRole('link', {name: 'Disappearing Elements'}).click();
+
+    let galleryCount = 0;
+    let nogalleryCount = 0;
+
+    for (let i=0; i<20; i++) {
+
+        const gallery = await page.locator('[href="/gallery/"]').isVisible()
+
+        if (gallery) {
+            galleryCount ++;
+        } else {
+            nogalleryCount ++;
+        }
+
+        await page.reload();
+    }
+
+    console.log('Gallery appeared', galleryCount, 'times');
+    console.log('No gallery appeared', nogalleryCount, 'times');
+});
+
 //Drag and drop
 // dragA - drag box A to box B position, then checks if the first location now has a box with 'B' in it
 test('dragA', async ({page}) => {
@@ -319,17 +345,3 @@ test('redirection', async ({page}) => {
     //await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 
 //});
-
-//Disappearing Elements
-test('gallery', async ({page}) => {
-    await page.getByRole('link', {name: 'Disappearing Elements'}).click();
-
-    const gallery = await page.locator('[href="/gallery/"]').isVisible()
-    if (gallery) {
-        console.log('gallery');
-    } else {
-        console.log('no gallery');
-    }
-
-    //await expect(page.locator('[href="/gallery/"]')).not.toBeVisible();
-});
