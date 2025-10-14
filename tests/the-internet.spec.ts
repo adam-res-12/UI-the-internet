@@ -291,6 +291,7 @@ test('redirection', async ({page}) => {
 
 //File Download
 // downloadGit - clicks to download file git.txt, then checks if a path exists + checks file name + prints file path
+// downloadWebIO - same as above but with webdriverIO.png file
 test('downloadGit', async ({page}) => {
     await page.locator('[href="/download"]').click();
     
@@ -299,9 +300,22 @@ test('downloadGit', async ({page}) => {
         await page.getByRole('link', {name: 'git.txt'}).click()
     ]);
     const path = await download.path();
+
     expect(path).not.toBeNull();
     expect(download.suggestedFilename()).toBe('git.txt');
     console.log('git.txt file path:', path);
 });
 
-test('download')
+test('downloadWebIO', async ({page}) => {
+    await page.locator('[href="/download"]').click();
+
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        await page.getByRole('link', {name: 'webdriverIO.png'}).click()
+    ]);
+    const path = await download.path();
+
+    expect(path).not.toBeNull();
+    expect(download.suggestedFilename()).toBe('webdriverIO.png');
+    console.log('webdriverIO.png file path:', path);
+})
