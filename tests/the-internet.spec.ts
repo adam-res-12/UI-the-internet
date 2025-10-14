@@ -207,6 +207,37 @@ test('re-enableAd', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 });
 
+//File Download
+// downloadGit - clicks to download file git.txt, then checks if a path exists + checks file name + prints file path
+// downloadWebIO - same as above but with webdriverIO.png file
+test('downloadGit', async ({page}) => {
+    await page.locator('[href="/download"]').click();
+    
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        await page.getByRole('link', {name: 'git.txt'}).click()
+    ]);
+    const path = await download.path();
+
+    expect(path).not.toBeNull();
+    expect(download.suggestedFilename()).toBe('git.txt');
+    console.log('git.txt file path:', path);
+});
+
+test('downloadWebIO', async ({page}) => {
+    await page.locator('[href="/download"]').click();
+
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        await page.getByRole('link', {name: 'webdriverIO.png'}).click()
+    ]);
+    const path = await download.path();
+
+    expect(path).not.toBeNull();
+    expect(download.suggestedFilename()).toBe('webdriverIO.png');
+    console.log('webdriverIO.png file path:', path);
+});
+
 //Form Authentication/ Login Page
 // login - attempt login with correct info, then check if it takes you to the secure area
 // wrongUsername - attempt login with wrong username, then check if wrong username alert shows
@@ -288,34 +319,3 @@ test('redirection', async ({page}) => {
     //await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 
 //});
-
-//File Download
-// downloadGit - clicks to download file git.txt, then checks if a path exists + checks file name + prints file path
-// downloadWebIO - same as above but with webdriverIO.png file
-test('downloadGit', async ({page}) => {
-    await page.locator('[href="/download"]').click();
-    
-    const [download] = await Promise.all([
-        page.waitForEvent('download'),
-        await page.getByRole('link', {name: 'git.txt'}).click()
-    ]);
-    const path = await download.path();
-
-    expect(path).not.toBeNull();
-    expect(download.suggestedFilename()).toBe('git.txt');
-    console.log('git.txt file path:', path);
-});
-
-test('downloadWebIO', async ({page}) => {
-    await page.locator('[href="/download"]').click();
-
-    const [download] = await Promise.all([
-        page.waitForEvent('download'),
-        await page.getByRole('link', {name: 'webdriverIO.png'}).click()
-    ]);
-    const path = await download.path();
-
-    expect(path).not.toBeNull();
-    expect(download.suggestedFilename()).toBe('webdriverIO.png');
-    console.log('webdriverIO.png file path:', path);
-})
