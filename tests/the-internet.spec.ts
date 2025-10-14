@@ -319,3 +319,17 @@ test('redirection', async ({page}) => {
     //await expect(page.getByRole('heading', {name: 'This is a modal window'})).toBeVisible();
 
 //});
+
+//Disappearing Elements
+test('gallery', async ({page}) => {
+    await page.getByRole('link', {name: 'Disappearing Elements'}).click();
+
+    const gallery = await page.locator('[href="/gallery/"]').isVisible()
+    if (gallery) {
+        console.log('gallery');
+    } else {
+        console.log('no gallery');
+    }
+
+    //await expect(page.locator('[href="/gallery/"]')).not.toBeVisible();
+});
