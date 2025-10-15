@@ -176,6 +176,7 @@ test('gallery', async ({page}) => {
 
     console.log('Gallery appeared', galleryCount, 'times');
     console.log('No gallery appeared', nogalleryCount, 'times');
+    expect(galleryCount > 0 && nogalleryCount > 0).toBeTruthy();
 });
 
 //Drag and drop
