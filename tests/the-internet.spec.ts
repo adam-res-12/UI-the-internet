@@ -181,13 +181,30 @@ test('gallery', async ({page}) => {
 
 //Drag and drop
 // dragA - drag box A to box B position, then checks if the first location now has a box with 'B' in it
+//       - drag box A back to A position, then checks if the first location now has a box with 'A' in it
 test('dragA', async ({page}) => {
     await page.getByRole('link', {name: 'Drag and Drop'}).click();
 
     await page.locator('#column-a.column').dragTo(page.locator('#column-b.column'));
 
     await expect(page.locator('#column-a.column')).toHaveText('B');
+
+    await page.locator('#column-b.column').dragTo(page.locator('#column-a.column'));
+
+    await expect(page.locator('#column-a.column')).toHaveText('A');
 });
+
+test('dragB', async ({page}) => {
+    await page.getByRole('link', {name: 'Drag and Drop'}).click();
+
+    await page.locator('#column-b.column').dragTo(page.locator('#column-a.column'));
+
+    await expect(page.locator('#column-b.column')).toHaveText('A');
+
+    await page.locator('#column-a.column').dragTo(page.locator('#column-b.column'));
+
+    await expect(page.locator('#column-b.column')).toHaveText('B');
+})
 
 //Dropdown 
 // dropdownOption1 - select option1 from dropdown list, then checks if the option is now in the box
