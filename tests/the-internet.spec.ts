@@ -227,8 +227,8 @@ test('dropdownOption2', async ({page}) => {
 });
 
 //Dynamic Controls
-// removeCheck - clicks button to remove the checkbox, then checks if there are 0 checkboxes
-//             - clicks button to add the checkbox back in, then checks if there is 1 checkbox
+// removeAddCheck - clicks button to remove the checkbox, then checks if there are 0 checkboxes
+//                - clicks button to add the checkbox back in, then checks if there is 1 checkbox
 test('removeCheck', async ({page}) => {
     await page.getByRole('link', {name: 'Dynamic Controls'}).click();
 
