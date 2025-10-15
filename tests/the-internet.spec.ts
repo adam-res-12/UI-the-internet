@@ -182,6 +182,7 @@ test('gallery', async ({page}) => {
 //Drag and drop
 // dragA - drag box A to box B position, then checks if the first location now has a box with 'B' in it
 //       - drag box A back to A position, then checks if the first location now has a box with 'A' in it
+// dragB - same as above, but with box B
 test('dragA', async ({page}) => {
     await page.getByRole('link', {name: 'Drag and Drop'}).click();
 
