@@ -225,6 +225,18 @@ test('dropdownOption2', async ({page}) => {
     await expect(page.locator('#dropdown')).toHaveValue('2');
 });
 
+//Dynamic Controls
+// removeCheck - clicks button to remove the checkbox, then checks if there are 0 checkboxes
+test('removeCheck', async ({page}) => {
+    await page.getByRole('link', {name: 'Dynamic Controls'}).click();
+
+    await page.getByRole('button', {name: 'Remove'}).click();
+
+    await page.getByRole('button', {name: 'Add'}).waitFor({state: 'visible'});
+
+    await expect(page.getByRole('checkbox')).toHaveCount(0);
+});
+
 //Entry Ad 
 // firstEntry - check ad/modal window appears when clicking on link
 // closeModal - close ad/modal window, then check it's no longer there
