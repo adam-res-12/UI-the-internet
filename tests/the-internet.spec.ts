@@ -324,6 +324,21 @@ test('wrongPassword', async ({page}) => {
     await expect(page.locator('#flash')).toContainText('Your password is invalid!');
 });
 
+//Hovers
+// hover - hovers over each profie image, then checks if the additional info appears
+test('hover', async ({page}) => {
+    await page.getByRole('link', {name: 'Hovers'}).click();
+
+    await page.locator('.figure').nth(0).hover();
+    await expect(page.getByRole('heading', {name: 'name: user1'})).toBeVisible();
+
+    await page.locator('.figure').nth(1).hover();
+    await expect(page.getByRole('heading', {name: 'name: user2'})).toBeVisible();
+
+    await page.locator('.figure').nth(2).hover();
+    await expect(page.getByRole('heading', {name: 'name: user3'})).toBeVisible();
+});
+
 //Key Presses 
 // keyPressesSHIFT - checks if pressing shift button in box results in 'You entered: SHIFT' output
 // keyPressesQ - then same for Q
