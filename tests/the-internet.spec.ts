@@ -151,8 +151,7 @@ test('contextMenu', async ({page}) => {
 });
 
 //Disappearing Elements
-// gallery - checks if gallery appears on 20 page loads, then prints number of appearances and no appearances
-//could just have it end if nogalleryCount > 0
+// gallery - checks if gallery appears on up to 20 page loads, then breaks when both counts are above 0 (means gallery is appearing/disappearing)
 test('gallery', async ({page}) => {
     await page.getByRole('link', {name: 'Disappearing Elements'}).click();
 
@@ -169,6 +168,9 @@ test('gallery', async ({page}) => {
             nogalleryCount ++;
         }
 
+        if (galleryCount > 0 && nogalleryCount > 0) {
+            break
+        }
         await page.reload();
     }
 
