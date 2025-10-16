@@ -115,15 +115,21 @@ test('brokenImage_img/avatar-blank', async ({page}) => {
     expect(checkImage).toBe(true);
 });
 
-//Checkboxes 
+//Checkboxes
 // checkbox1 - check box 1, then check if checked
+//           - uncheck box 1, then check if not checked
 // checkbox2 - uncheck box 2, then check if not checked
+//           - check box 2, then check if checked
 test('checkbox1', async ({page}) => {
     await page.getByRole('link', {name:'Checkboxes'}).click();
     
     await page.getByRole('checkbox').first().check();
 
     await expect(page.getByRole('checkbox').first()).toBeChecked();
+
+    await page.getByRole('checkbox').first().uncheck();
+
+    await expect(page.getByRole('checkbox').first()).not.toBeChecked();
 });
 
 test('checkbox2', async ({page}) => {
@@ -132,6 +138,10 @@ test('checkbox2', async ({page}) => {
     await page.getByRole('checkbox').nth(1).uncheck();
 
     await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
+
+    await page.getByRole('checkbox').nth(1).check();
+
+    await expect(page.getByRole('checkbox').nth(1)).toBeChecked();
 });
 
 //Context Menu
@@ -209,13 +219,18 @@ test('dragB', async ({page}) => {
 
 //Dropdown 
 // dropdownOption1 - select option1 from dropdown list, then checks if the option is now in the box
-// dropdownOption2 - then same for option2
+//                 - select option2 from dropdown list, then checks if the option is now in the box
+// dropdownOption2 - then same , but with option2 first followed by option1
 test('dropdownOption1', async ({page}) => {
     await page.getByRole('link', {name: 'Dropdown'}).click();
 
     await page.locator('#dropdown').selectOption({value: '1'});
 
     await expect(page.locator('#dropdown')).toHaveValue('1');
+
+    await page.locator('#dropdown').selectOption({value: '2'});
+
+    await expect(page.locator('#dropdown')).toHaveValue('2');
 });
 
 test('dropdownOption2', async ({page}) => {
@@ -224,11 +239,18 @@ test('dropdownOption2', async ({page}) => {
     await page.locator('#dropdown').selectOption({value: '2'});
 
     await expect(page.locator('#dropdown')).toHaveValue('2');
+
+    await page.locator('#dropdown').selectOption({value: '1'});
+
+    await expect(page.locator('#dropdown')).toHaveValue('1');
 });
 
 //Dynamic Controls
 // removeAddCheck - clicks button to remove the checkbox, then checks if there are 0 checkboxes
 //                - clicks button to add the checkbox back in, then checks if there is 1 checkbox
+// enableDisable - checks if text box is disabled, then clicks enable button and checks if no longer disabled
+//               - puts 'qwerty' in textbox, then checks if textbox has 'qwerty' in it
+//               - clicks disable button, then checks if textbox is disabled
 test('removeCheck', async ({page}) => {
     await page.getByRole('link', {name: 'Dynamic Controls'}).click();
 
@@ -239,6 +261,23 @@ test('removeCheck', async ({page}) => {
     await page.getByRole('button', {name: 'Add'}).click();
     await page.getByRole('button', {name: 'Remove'}).waitFor({state: 'visible'});
     await expect(page.getByRole('checkbox')).toHaveCount(1);
+});
+
+test('enableDisable', async ({page}) => {
+    await page.getByRole('link', {name: 'Dynamic Controls'}).click();
+
+    await expect(page.getByRole('textbox')).toBeDisabled();
+
+    await page.getByRole('button', {name: 'Enable'}).click();
+    await page.getByRole('button', {name: 'Disable'}).waitFor({state: 'visible'});
+    await expect(page.getByRole('textbox')).not.toBeDisabled();
+
+    await page.getByRole('textbox').fill('qwerty');
+    await expect(page.getByRole('textbox')).toHaveValue('qwerty');
+
+    await page.getByRole('button', {name: 'Disable'}).click();
+    await page.getByRole('button', {name: 'Enable'}).waitFor({state: 'visible'});
+    await expect(page.getByRole('textbox')).toBeDisabled();
 });
 
 //Entry Ad 
