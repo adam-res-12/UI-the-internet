@@ -309,20 +309,20 @@ test('re-enableAd', async ({page}) => {
 });
 
 //File Download
-// downloadGit - clicks to download file git.txt, then checks if a path exists + checks file name + prints file path
+// downloadBb - clicks to download file bb.txt, then checks if a path exists + checks file name + prints file path
 // downloadWebIO - same as above but with webdriverIO.png file
-test('downloadGit', async ({page}) => {
+test('downloadBb', async ({page}) => {
     await page.locator('[href="/download"]').click();
     
     const [download] = await Promise.all([
         page.waitForEvent('download'),
-        await page.getByRole('link', {name: 'git.txt'}).click()
+        await page.getByRole('link', {name: 'bb.txt'}).click()
     ]);
     const path = await download.path();
 
     expect(path).not.toBeNull();
-    expect(download.suggestedFilename()).toBe('git.txt');
-    console.log('git.txt file path:', path);
+    expect(download.suggestedFilename()).toBe('bb.txt');
+    console.log('bb.txt file path:', path);
 });
 
 test('downloadWebIO', async ({page}) => {
