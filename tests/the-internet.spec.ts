@@ -394,6 +394,31 @@ test('hover', async ({page}) => {
     await expect(page.getByRole('heading', {name: 'name: user3'})).toBeVisible();
 });
 
+//Inputs
+// inputNumChange - inputs '1234' and presses up to increase by 1, then checks if now showing '12345'
+// negNum - presses to decrease by 1, then checks if now showing '-1'
+test('inputNumChange', async ({page}) => {
+    await page.getByRole('link', {name: 'Inputs'}).click();
+
+    await page.getByRole('spinbutton').fill('1234');
+
+    await page.getByRole('spinbutton').focus();
+
+    await page.keyboard.press('ArrowUp');
+
+    await expect(page.getByRole('spinbutton')).toHaveValue('1235');
+});
+
+test('negNum', async ({page}) => {
+    await page.getByRole('link', {name: 'Inputs'}).click();
+
+    await page.getByRole('spinbutton').focus();
+
+    await page.keyboard.press('ArrowDown');
+
+    await expect(page.getByRole('spinbutton')).toHaveValue('-1');
+});
+
 //Key Presses 
 // keyPressesSHIFT - checks if pressing shift button in box results in 'You entered: SHIFT' output
 // keyPressesQ - then same for Q
