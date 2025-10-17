@@ -419,6 +419,20 @@ test('negNum', async ({page}) => {
     await expect(page.getByRole('spinbutton')).toHaveValue('-1');
 });
 
+test('inputLetters', async ({page}) => {
+    await page.getByRole('link', {name: 'Inputs'}).click();
+
+    let fillFail = false;
+
+    try {
+        await page.getByRole('spinbutton').fill('asdf');
+    } catch (e) {
+        fillFail = true;
+    }
+
+    expect(fillFail).toBeTruthy();
+})
+
 //Key Presses 
 // keyPressesSHIFT - checks if pressing shift button in box results in 'You entered: SHIFT' output
 // keyPressesQ - then same for Q
