@@ -31,13 +31,13 @@ test('has heading', async ({page}) => {
 //Add/Remove Elements
 // addElement - add delete, then check its there
 // add2Elements - add 2 delete, then check for 2
-// deleteElement - add delete then remove, check delete is removed
+// deleteElement - add delete then remove, then check delete is removed
 test('addElement', async ({page}) => {
     await page.getByRole('link', {name: 'Add/Remove Elements'}).click();
 
     await page.getByRole('button', {name: 'Add Element'}).click();
 
-    await expect(page.getByRole('button', {name: 'Delete'})).toBeVisible();
+    await expect(page.getByRole('button', {name: 'Delete'})).toHaveCount(1);
 });
 
 test('add2Elements', async ({page}) => {
@@ -217,6 +217,11 @@ test('dragB', async ({page}) => {
     await expect(page.locator('#column-b.column')).toHaveText('B');
 })
 
+//test('dragSomewhereElse', async ({page}) => {
+    //await page.getByRole('link', {name: 'Drag and Drop'}).click();
+
+//})
+
 //Dropdown 
 // dropdownOption1 - select option1 from dropdown list, then checks if the option is now in the box
 //                 - select option2 from dropdown list, then checks if the option is now in the box
@@ -311,6 +316,8 @@ test('re-enableAd', async ({page}) => {
 //File Download
 // downloadBb - clicks to download file bb.txt, then checks if a path exists + checks file name + prints file path
 // downloadWebIO - same as above but with webdriverIO.png file
+
+//change both identifiers for files to just be the first and second files on the page as they keep changing
 test('downloadBb', async ({page}) => {
     await page.locator('[href="/download"]').click();
     
@@ -343,6 +350,7 @@ test('downloadWebIO', async ({page}) => {
 // login - attempt login with correct info, then check if it takes you to the secure area
 // wrongUsername - attempt login with wrong username, then check if wrong username alert shows
 // wrongPassword - attempt login with wrong password, then check if wrong password alert shows
+// wrongBoth - attempt login with wrong username and password, then check if wrong username alert shows
 test('login', async ({page}) => {
     await page.getByRole('link', {name: 'Form Authentication'}).click();
 
@@ -379,6 +387,18 @@ test('wrongPassword', async ({page}) => {
     await expect(page.locator('#flash')).toContainText('Your password is invalid!');
 });
 
+test('wrongBoth', async ({page}) =>{
+    await page.getByRole('link', {name: 'Form Authentication'}).click();
+
+    await page.locator('#username').fill('qwerty');
+
+    await page.locator('#password').fill('qwerty');
+
+    await page.getByRole('button', {name: 'Login'}).click();
+
+    await expect(page.locator('#flash')).toContainText('Your username is invalid!');
+});
+
 //Hovers
 // hover - hovers over each profie image, then checks if the additional info appears
 test('hover', async ({page}) => {
@@ -395,12 +415,16 @@ test('hover', async ({page}) => {
 });
 
 //Inputs
-// inputNumChange - inputs '1234' and presses up to increase by 1, then checks if now showing '12345'
+// inputNumChange - inputs '1234', then checks if showing '1234'
+//                - presses up to increase by 1, then checks if now showing '1235'
 // negNum - presses to decrease by 1, then checks if now showing '-1'
+// inputLetters - tries to put letters into inputs box, then checks if it fails to input
 test('inputNumChange', async ({page}) => {
     await page.getByRole('link', {name: 'Inputs'}).click();
 
     await page.getByRole('spinbutton').fill('1234');
+
+    await expect(page.getByRole('spinbutton')).toHaveValue('1234');
 
     await page.getByRole('spinbutton').focus();
 
@@ -431,11 +455,12 @@ test('inputLetters', async ({page}) => {
     }
 
     expect(fillFail).toBeTruthy();
-})
+});
 
 //Key Presses 
 // keyPressesSHIFT - checks if pressing shift button in box results in 'You entered: SHIFT' output
 // keyPressesQ - then same for Q
+// keyPresses5 - then same for 5
 test('keyPressesSHIFT', async ({page}) => {
     await page.getByRole('link', {name: 'Key Presses'}).click();
 
@@ -452,6 +477,14 @@ test('keyPressesQ', async ({page}) => {
     await expect(page.locator('#result')).toHaveText('You entered: Q');
 });
 
+test('keyPresses5', async ({page}) => {
+    await page.getByRole('link', {name: 'Key Presses'}).click();
+
+    await page.locator('#target').press('5');
+
+    await expect(page.locator('#result')).toHaveText('You entered: 5');
+});
+
 //Redirection 
 // redirection - checks that the redirect link takes you to the status codes page
 test('redirection', async ({page}) => {
@@ -461,6 +494,29 @@ test('redirection', async ({page}) => {
 
     await expect(page.getByRole('heading', {name: 'Status Codes'})).toBeVisible();
 });
+
+//Shifting Content
+test('shiftingList', async ({page}) => {
+    await page.getByRole('link', {name: 'Shifting Content'}).click();
+  
+      await page.getByRole('link', {name: 'Example 3: List'}).click();
+  
+      const One = page.locator('.row').nth(2);
+      const textOne = await One.innerText();
+      console.log(textOne);
+  
+  //add loop where reload make new text into textTwo, compare with textOne, if different break, if the same continue
+  
+      await page.reload();
+  
+      const Two = page.locator('.row').nth(2);
+      const textTwo = await Two.innerText();
+      console.log(textTwo);
+  
+  //can just be an expect .not.toBe so that it passes when loop break
+  
+      expect(textOne).toBe(textTwo);
+  });
 
 //Exit Intent
 // exitViewport - should move cursor so mouseleave event occurs and modal windows pops up, but that's not working
