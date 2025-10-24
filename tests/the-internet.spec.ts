@@ -372,7 +372,7 @@ test('downloadSecond', async ({page}) => {
 
     const secondDownload = await page.locator('.example').evaluate(el => {
         const text = (el as HTMLElement).innerText.trim();
-        return text.split('\n')[2]; //Uses 1 as first text in class is heading
+        return text.split('\n')[2];
     });
 
     console.log(secondDownload);
