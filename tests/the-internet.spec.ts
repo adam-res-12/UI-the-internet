@@ -316,8 +316,8 @@ test('re-enableAd', async ({page}) => {
 //File Download
 // downloadBb - clicks to download file bb.txt, then checks if a path exists + checks file name + prints file path
 // downloadWebIO - same as above but with webdriverIO.png file
-
-//change both identifiers for files to just be the first and second files on the page as they keep changing
+// downloadFirst - finds the name of the first download in "example" class, then does the same as above but with first download file
+// downloadSecond - same as above but with second download in "example" class, then does same as above but with second download file
 test('downloadBb', async ({page}) => {
     await page.locator('[href="/download"]').click();
     
@@ -344,6 +344,48 @@ test('downloadWebIO', async ({page}) => {
     expect(path).not.toBeNull();
     expect(download.suggestedFilename()).toBe('webdriverIO.png');
     console.log('webdriverIO.png file path:', path);
+});
+
+test('downloadFirst', async ({page}) => {
+    await page.locator('[href="/download"]').click();
+
+    const firstDownload = await page.locator('.example').evaluate(el => {
+        const text = (el as HTMLElement).innerText.trim();
+        return text.split('\n')[1]; //Uses 1 as first text in class is heading
+    });
+
+    console.log(firstDownload);
+    
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        await page.getByRole('link', {name: firstDownload}).click()
+    ]);
+    const path = await download.path();
+
+    expect(path).not.toBeNull();
+    expect(download.suggestedFilename()).toBe(firstDownload);
+    console.log(firstDownload, 'file path:', path);
+});
+
+test('downloadSecond', async ({page}) => {
+    await page.locator('[href="/download"]').click();
+
+    const secondDownload = await page.locator('.example').evaluate(el => {
+        const text = (el as HTMLElement).innerText.trim();
+        return text.split('\n')[2]; //Uses 1 as first text in class is heading
+    });
+
+    console.log(secondDownload);
+    
+    const [download] = await Promise.all([
+        page.waitForEvent('download'),
+        await page.getByRole('link', {name: secondDownload}).click()
+    ]);
+    const path = await download.path();
+
+    expect(path).not.toBeNull();
+    expect(download.suggestedFilename()).toBe(secondDownload);
+    console.log(secondDownload, 'file path:', path);
 });
 
 //Form Authentication/ Login Page
