@@ -546,18 +546,24 @@ test('shiftingList', async ({page}) => {
       const One = page.locator('.row').nth(2);
       const textOne = await One.innerText();
       console.log(textOne);
-  
-  //add loop where reload make new text into textTwo, compare with textOne, if different break, if the same continue
-  
-      await page.reload();
-  
-      const Two = page.locator('.row').nth(2);
-      const textTwo = await Two.innerText();
-      console.log(textTwo);
-  
-  //can just be an expect .not.toBe so that it passes when loop break
-  
-      expect(textOne).toBe(textTwo);
+
+    let match = false;
+    
+    for (let i=0; i<20; i++) {
+
+        await page.reload();
+
+        const Two = page.locator('.row').nth(2);
+        const textTwo = await Two.innerText();
+        console.log(textTwo);
+
+        if (textOne!=textTwo) {
+            match = true;
+            break;
+        }
+    }
+
+    expect(match).toBeTruthy();
   });
 
 //Exit Intent
