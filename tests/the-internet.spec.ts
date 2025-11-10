@@ -602,8 +602,8 @@ test('checkTypo', async ({page}) => {
 
         await page.reload();
     }
-    console.log(countTrue);
-    console.log(countFalse);
+    console.log('No. of matches', countTrue);
+    console.log('No. of mismatches', countFalse);
 });
 
 //Exit Intent
