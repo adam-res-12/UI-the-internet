@@ -584,16 +584,11 @@ test('checkTypo', async ({page}) => {
 
         const Appears = page.locator('.row').nth(1);
         const textAppears = await Appears.innerText();
-        const normAppears= normalize(textAppears);
+        const normAppears = normalize(textAppears);
         //console.log(normAppears);
 
         if (normAppears!=Intended) {
             match = false;
-        }
-
-        if (match===true) {
-            countTrue++;
-        } else {
             countFalse++;
             for (let i=0; i < Math.max(normAppears.length, Intended.length); i++) {
                 if (normAppears[i] !== Intended[i]){
@@ -601,6 +596,8 @@ test('checkTypo', async ({page}) => {
                 }
             }
             break;
+        } else {
+            countTrue++;
         }
 
         await page.reload();
