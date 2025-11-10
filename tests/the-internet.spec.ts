@@ -566,6 +566,49 @@ test('shiftingList', async ({page}) => {
     expect(match).toBeTruthy();
   });
 
+//Typos
+// checkTypo - checks text shows what is intended, reloads if it does and checks again, if not match gives typo and its location along with what should be shown
+test('checkTypo', async ({page}) => {
+    await page.getByRole('link', {name: 'Typos'}).click();
+
+    const Intended = "Typos\n\nThis example demonstrates a typo being introduced. It does it randomly on each page load.\n\nSometimes you'll see a typo, other times you won't.";
+    //console.log(Intended);
+
+    const normalize = (str) => str.replace(/\r\n/g, '\n').trim();
+    let countTrue = 0;
+    let countFalse = 0;
+
+    for (let i=0; i<20; i++) {
+
+        let match = true;
+
+        const Appears = page.locator('.row').nth(1);
+        const textAppears = await Appears.innerText();
+        const normAppears= normalize(textAppears);
+        //console.log(normAppears);
+
+        if (normAppears!=Intended) {
+            match = false;
+        }
+
+        if (match===true) {
+            countTrue++;
+        } else {
+            countFalse++;
+            for (let i=0; i < Math.max(normAppears.length, Intended.length); i++) {
+                if (normAppears[i] !== Intended[i]){
+                    console.log(`There is a typo located at position ${i}: page shows "${normAppears[i] || 'END'}", but should show "${Intended[i] ||'END'}"`);
+                }
+            }
+            break;
+        }
+
+        await page.reload();
+    }
+    console.log(countTrue);
+    console.log(countFalse);
+});
+
 //Exit Intent
 // exitViewport - should move cursor so mouseleave event occurs and modal windows pops up, but that's not working
 //test('exitViewport', async ({page}) => {
