@@ -538,6 +538,7 @@ test('redirection', async ({page}) => {
 });
 
 //Shifting Content
+// shiftingList - checks the text in the list, then reloads and checks if its the same or if the lines have moved around
 test('shiftingList', async ({page}) => {
     await page.getByRole('link', {name: 'Shifting Content'}).click();
   
