@@ -1,0 +1,315 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - link "Fork me on GitHub":
+      - /url: https://github.com/tourdedave/the-internet
+      - img "Fork me on GitHub" [ref=e5] [cursor=pointer]
+    - generic [ref=e7]:
+      - heading "File Downloader" [level=3] [ref=e8]
+      - link "large-test-file.txt" [ref=e9] [cursor=pointer]:
+        - /url: download/large-test-file.txt
+      - link "430-greenville-byp_test (5).pdf" [ref=e10] [cursor=pointer]:
+        - /url: download/430-greenville-byp_test (5).pdf
+      - link "renamed.pdf" [ref=e11] [cursor=pointer]:
+        - /url: download/renamed.pdf
+      - link "Employees5.xlsx" [ref=e12] [cursor=pointer]:
+        - /url: download/Employees5.xlsx
+      - link "bb.txt" [ref=e13] [cursor=pointer]:
+        - /url: download/bb.txt
+      - link "tmp77qpgwsb.txt" [ref=e14] [cursor=pointer]:
+        - /url: download/tmp77qpgwsb.txt
+      - link "Anita.jpg" [ref=e15] [cursor=pointer]:
+        - /url: download/Anita.jpg
+      - link "calcdata.xlsx" [ref=e16] [cursor=pointer]:
+        - /url: download/calcdata.xlsx
+      - link "test.csv" [ref=e17] [cursor=pointer]:
+        - /url: download/test.csv
+      - link "test-image.png" [ref=e18] [cursor=pointer]:
+        - /url: download/test-image.png
+      - link "demo-upload.txt" [ref=e19] [cursor=pointer]:
+        - /url: download/demo-upload.txt
+      - link "ai module.png" [ref=e20] [cursor=pointer]:
+        - /url: download/ai module.png
+      - link "tmpxnmjreji.txt" [ref=e21] [cursor=pointer]:
+        - /url: download/tmpxnmjreji.txt
+      - link "selenium-snapshot.png" [ref=e22] [cursor=pointer]:
+        - /url: download/selenium-snapshot.png
+      - link "26CC86C8-4275-491F-B4C6-FA317A19674C.png" [ref=e23] [cursor=pointer]:
+        - /url: download/26CC86C8-4275-491F-B4C6-FA317A19674C.png
+      - link "MyImage.png" [ref=e24] [cursor=pointer]:
+        - /url: download/MyImage.png
+      - link "file1.txt" [ref=e25] [cursor=pointer]:
+        - /url: download/file1.txt
+      - link "uploadTestFile.txt" [ref=e26] [cursor=pointer]:
+        - /url: download/uploadTestFile.txt
+      - link "Srusti S_Py6.pdf" [ref=e27] [cursor=pointer]:
+        - /url: download/Srusti S_Py6.pdf
+      - link "state-webkit.json" [ref=e28] [cursor=pointer]:
+        - /url: download/state-webkit.json
+      - link "tmpvpbc1x2f.txt" [ref=e29] [cursor=pointer]:
+        - /url: download/tmpvpbc1x2f.txt
+      - link "cartas.xlsx" [ref=e30] [cursor=pointer]:
+        - /url: download/cartas.xlsx
+      - link "log4j-active (7).txt" [ref=e31] [cursor=pointer]:
+        - /url: download/log4j-active (7).txt
+      - link "api.txt" [ref=e32] [cursor=pointer]:
+        - /url: download/api.txt
+      - link "ZZZZZ1220046045.pdf" [ref=e33] [cursor=pointer]:
+        - /url: download/ZZZZZ1220046045.pdf
+      - link "frame.py" [ref=e34] [cursor=pointer]:
+        - /url: download/frame.py
+      - link "image.png" [ref=e35] [cursor=pointer]:
+        - /url: download/image.png
+      - link "311928090_20.jpg" [ref=e36] [cursor=pointer]:
+        - /url: download/311928090_20.jpg
+      - link "12.py" [ref=e37] [cursor=pointer]:
+        - /url: download/12.py
+      - link "my_custom_file.txt" [ref=e38] [cursor=pointer]:
+        - /url: download/my_custom_file.txt
+      - link "ZZZZZ2870535967.bmp" [ref=e39] [cursor=pointer]:
+        - /url: download/ZZZZZ2870535967.bmp
+      - link "Srusti S_Py6 (1).pdf" [ref=e40] [cursor=pointer]:
+        - /url: download/Srusti S_Py6 (1).pdf
+      - link "tmp6zys8g8y.txt" [ref=e41] [cursor=pointer]:
+        - /url: download/tmp6zys8g8y.txt
+      - link "test_upload6179939848078622167.txt" [ref=e42] [cursor=pointer]:
+        - /url: download/test_upload6179939848078622167.txt
+      - link "responseBodyMockExample.json" [ref=e43] [cursor=pointer]:
+        - /url: download/responseBodyMockExample.json
+      - link "tmpxtkq8rj7.txt" [ref=e44] [cursor=pointer]:
+        - /url: download/tmpxtkq8rj7.txt
+      - link "Sinjini.png" [ref=e45] [cursor=pointer]:
+        - /url: download/Sinjini.png
+      - link "RUTHVIK.N.S.xlsx" [ref=e46] [cursor=pointer]:
+        - /url: download/RUTHVIK.N.S.xlsx
+      - link "XORXOR726570759.jpg" [ref=e47] [cursor=pointer]:
+        - /url: download/XORXOR726570759.jpg
+      - link "ANCPoox103079456.png" [ref=e48] [cursor=pointer]:
+        - /url: download/ANCPoox103079456.png
+      - link "Desktop-wallpaper-bebo-mx-2.jpg" [ref=e49] [cursor=pointer]:
+        - /url: download/Desktop-wallpaper-bebo-mx-2.jpg
+      - link "新建 文本文档.txt" [ref=e50] [cursor=pointer]:
+        - /url: download/新建 文本文档.txt
+      - link "sample3.pdf" [ref=e51] [cursor=pointer]:
+        - /url: download/sample3.pdf
+      - link "app_liveBug.jpg" [ref=e52] [cursor=pointer]:
+        - /url: download/app_liveBug.jpg
+      - link "ntuser.ini" [ref=e53] [cursor=pointer]:
+        - /url: download/ntuser.ini
+      - link "playwrightlogo.png" [ref=e54] [cursor=pointer]:
+        - /url: download/playwrightlogo.png
+      - link "some-file.txt" [ref=e55] [cursor=pointer]:
+        - /url: download/some-file.txt
+      - link "selenide-intro.txt" [ref=e56] [cursor=pointer]:
+        - /url: download/selenide-intro.txt
+      - link "Photo.pdf" [ref=e57] [cursor=pointer]:
+        - /url: download/Photo.pdf
+      - link "logo.png" [ref=e58] [cursor=pointer]:
+        - /url: download/logo.png
+      - link "XORXOR2532464902.pps" [ref=e59] [cursor=pointer]:
+        - /url: download/XORXOR2532464902.pps
+      - link "!!!!!3783065843.ppt" [ref=e60] [cursor=pointer]:
+        - /url: download/!!!!!3783065843.ppt
+      - link "main.json" [ref=e61] [cursor=pointer]:
+        - /url: download/main.json
+      - link "test_upload11683333311004399387.txt" [ref=e62] [cursor=pointer]:
+        - /url: download/test_upload11683333311004399387.txt
+      - link "Test Document.pdf" [ref=e63] [cursor=pointer]:
+        - /url: download/Test Document.pdf
+      - link "test-upload.txt" [ref=e64] [cursor=pointer]:
+        - /url: download/test-upload.txt
+      - link "sample-zip-file.zip" [ref=e65] [cursor=pointer]:
+        - /url: download/sample-zip-file.zip
+      - link "7d2c5299e08a3426d5a9d62cfd8d285a1c7cb0d7 Build report.pdf" [ref=e66] [cursor=pointer]:
+        - /url: download/7d2c5299e08a3426d5a9d62cfd8d285a1c7cb0d7 Build report.pdf
+      - link "Employees.xlsx" [ref=e67] [cursor=pointer]:
+        - /url: download/Employees.xlsx
+      - link "tf.txt" [ref=e68] [cursor=pointer]:
+        - /url: download/tf.txt
+      - 'link "NTUSER.DAT{2ad838bc-efea-11ee-a54d-000d3a94eaa1}.TM.blf" [ref=e69] [cursor=pointer]':
+        - /url: "download/NTUSER.DAT{2ad838bc-efea-11ee-a54d-000d3a94eaa1}.TM.blf"
+      - link "luminoslogo.png" [ref=e70] [cursor=pointer]:
+        - /url: download/luminoslogo.png
+      - link "Employees3.xlsx" [ref=e71] [cursor=pointer]:
+        - /url: download/Employees3.xlsx
+      - link "not_empty.txt" [ref=e72] [cursor=pointer]:
+        - /url: download/not_empty.txt
+      - link "Priya.jpg" [ref=e73] [cursor=pointer]:
+        - /url: download/Priya.jpg
+      - link "example.txt" [ref=e74] [cursor=pointer]:
+        - /url: download/example.txt
+      - link "sample-local-pdf.pdf" [ref=e75] [cursor=pointer]:
+        - /url: download/sample-local-pdf.pdf
+      - link "zero_bytes_file.txt" [ref=e76] [cursor=pointer]:
+        - /url: download/zero_bytes_file.txt
+      - link "testupload14977002324506647940.txt" [ref=e77] [cursor=pointer]:
+        - /url: download/testupload14977002324506647940.txt
+      - link "test_upload15854868065930115998.txt" [ref=e78] [cursor=pointer]:
+        - /url: download/test_upload15854868065930115998.txt
+      - 'link "NTUSER.DAT{2ad838bc-efea-11ee-a54d-000d3a94eaa1}.TMContainer00000000000000000001.regtrans-ms" [ref=e79] [cursor=pointer]':
+        - /url: "download/NTUSER.DAT{2ad838bc-efea-11ee-a54d-000d3a94eaa1}.TMContainer00000000000000000001.regtrans-ms"
+      - link "sample.txt" [ref=e80] [cursor=pointer]:
+        - /url: download/sample.txt
+      - link "Employees2.xlsx" [ref=e81] [cursor=pointer]:
+        - /url: download/Employees2.xlsx
+      - link "test.json" [ref=e82] [cursor=pointer]:
+        - /url: download/test.json
+      - link "LambdaTest.txt" [ref=e83] [cursor=pointer]:
+        - /url: download/LambdaTest.txt
+      - link "ANCPoox2197962451.txt" [ref=e84] [cursor=pointer]:
+        - /url: download/ANCPoox2197962451.txt
+      - link "sampleFile.txt" [ref=e85] [cursor=pointer]:
+        - /url: download/sampleFile.txt
+      - link "tmpw8nwsn5i.txt" [ref=e86] [cursor=pointer]:
+        - /url: download/tmpw8nwsn5i.txt
+      - link "XORXOR4219887632.db" [ref=e87] [cursor=pointer]:
+        - /url: download/XORXOR4219887632.db
+      - link "large_test_file.txt" [ref=e88] [cursor=pointer]:
+        - /url: download/large_test_file.txt
+      - link "ANCPoox1605900704.pst" [ref=e89] [cursor=pointer]:
+        - /url: download/ANCPoox1605900704.pst
+      - link "Test.txt" [ref=e90] [cursor=pointer]:
+        - /url: download/Test.txt
+      - link "susmee.jpeg" [ref=e91] [cursor=pointer]:
+        - /url: download/susmee.jpeg
+      - link "PRD 32 - Hotel listing booking.com.pdf" [ref=e92] [cursor=pointer]:
+        - /url: download/PRD 32 - Hotel listing booking.com.pdf
+      - link "tmpjpxu3cd4.txt" [ref=e93] [cursor=pointer]:
+        - /url: download/tmpjpxu3cd4.txt
+      - link "Test_image.png" [ref=e94] [cursor=pointer]:
+        - /url: download/Test_image.png
+      - link "abc.txt" [ref=e95] [cursor=pointer]:
+        - /url: download/abc.txt
+      - link "example.json" [ref=e96] [cursor=pointer]:
+        - /url: download/example.json
+      - link "Screenshot 2025-11-10 161142.png" [ref=e97] [cursor=pointer]:
+        - /url: download/Screenshot 2025-11-10 161142.png
+      - link "tmp1jb1qnjr.txt" [ref=e98] [cursor=pointer]:
+        - /url: download/tmp1jb1qnjr.txt
+      - link "empty_file.txt" [ref=e99] [cursor=pointer]:
+        - /url: download/empty_file.txt
+      - link "sample_media_file.png" [ref=e100] [cursor=pointer]:
+        - /url: download/sample_media_file.png
+      - link "ZZZ.txt" [ref=e101] [cursor=pointer]:
+        - /url: download/ZZZ.txt
+      - link "sm.jpg" [ref=e102] [cursor=pointer]:
+        - /url: download/sm.jpg
+      - link "dojo-temp-1762853031986-dojo-temp-1762468093735-jedox gmbh.pdf" [ref=e103] [cursor=pointer]:
+        - /url: download/dojo-temp-1762853031986-dojo-temp-1762468093735-jedox gmbh.pdf
+      - link "file.txt" [ref=e104] [cursor=pointer]:
+        - /url: download/file.txt
+      - link "test.txt" [ref=e105] [cursor=pointer]:
+        - /url: download/test.txt
+      - link "Jpeg_with_exif.jpeg" [ref=e106] [cursor=pointer]:
+        - /url: download/Jpeg_with_exif.jpeg
+      - link "testupload14569658408821801031.txt" [ref=e107] [cursor=pointer]:
+        - /url: download/testupload14569658408821801031.txt
+      - link "windowhandle.py" [ref=e108] [cursor=pointer]:
+        - /url: download/windowhandle.py
+      - link "credits.html" [ref=e109] [cursor=pointer]:
+        - /url: download/credits.html
+      - link "Text File.txt" [ref=e110] [cursor=pointer]:
+        - /url: download/Text File.txt
+      - link "menu.pdf" [ref=e111] [cursor=pointer]:
+        - /url: download/menu.pdf
+      - link "!!!!!2137611158.pem" [ref=e112] [cursor=pointer]:
+        - /url: download/!!!!!2137611158.pem
+      - link "dev_view.png" [ref=e113] [cursor=pointer]:
+        - /url: download/dev_view.png
+      - link "file.json" [ref=e114] [cursor=pointer]:
+        - /url: download/file.json
+      - link "!!!!!2744524806.avi" [ref=e115] [cursor=pointer]:
+        - /url: download/!!!!!2744524806.avi
+      - link "To Mentor -Abhinay_Playwright.docx" [ref=e116] [cursor=pointer]:
+        - /url: download/To Mentor -Abhinay_Playwright.docx
+      - link "9woppj0uvm_Screenshot (2).png" [ref=e117] [cursor=pointer]:
+        - /url: download/9woppj0uvm_Screenshot (2).png
+      - link "Screenshot_3.png" [ref=e118] [cursor=pointer]:
+        - /url: download/Screenshot_3.png
+      - link "ANCPoox3696247323.xlsx" [ref=e119] [cursor=pointer]:
+        - /url: download/ANCPoox3696247323.xlsx
+      - link "test.xml" [ref=e120] [cursor=pointer]:
+        - /url: download/test.xml
+      - link "XORXOR4236032144.xls" [ref=e121] [cursor=pointer]:
+        - /url: download/XORXOR4236032144.xls
+      - link "!!!!!2389911753.eml" [ref=e122] [cursor=pointer]:
+        - /url: download/!!!!!2389911753.eml
+      - link "sample.png" [ref=e123] [cursor=pointer]:
+        - /url: download/sample.png
+      - 'link "NTUSER.DAT{2ad838bc-efea-11ee-a54d-000d3a94eaa1}.TMContainer00000000000000000002.regtrans-ms" [ref=e124] [cursor=pointer]':
+        - /url: "download/NTUSER.DAT{2ad838bc-efea-11ee-a54d-000d3a94eaa1}.TMContainer00000000000000000002.regtrans-ms"
+      - link "test_upload.txt" [ref=e125] [cursor=pointer]:
+        - /url: download/test_upload.txt
+      - link "ZZZZZ2772732435.mdb" [ref=e126] [cursor=pointer]:
+        - /url: download/ZZZZZ2772732435.mdb
+      - link "SomeFile.txt" [ref=e127] [cursor=pointer]:
+        - /url: download/SomeFile.txt
+      - link "F1GetFileText.txt" [ref=e128] [cursor=pointer]:
+        - /url: download/F1GetFileText.txt
+      - link "Sample1.txt" [ref=e129] [cursor=pointer]:
+        - /url: download/Sample1.txt
+      - link "upload-me.txt" [ref=e130] [cursor=pointer]:
+        - /url: download/upload-me.txt
+      - link "Employees4.xlsx" [ref=e131] [cursor=pointer]:
+        - /url: download/Employees4.xlsx
+      - link "tmpzu591orl.txt" [ref=e132] [cursor=pointer]:
+        - /url: download/tmpzu591orl.txt
+      - link "Pi7_Tool_caste kavya.pdf" [ref=e133] [cursor=pointer]:
+        - /url: download/Pi7_Tool_caste kavya.pdf
+      - link "learning.txt" [ref=e134] [cursor=pointer]:
+        - /url: download/learning.txt
+      - link "SampleExcelFile.xlsx" [ref=e135] [cursor=pointer]:
+        - /url: download/SampleExcelFile.xlsx
+      - link "tmpy0_1rt3n.txt" [ref=e136] [cursor=pointer]:
+        - /url: download/tmpy0_1rt3n.txt
+      - link "Coping Skills.pdf" [ref=e137] [cursor=pointer]:
+        - /url: download/Coping Skills.pdf
+      - link "LD_110316_Campus_Autumn_1653.jpg" [ref=e138] [cursor=pointer]:
+        - /url: download/LD_110316_Campus_Autumn_1653.jpg
+      - link "remote_file_upload_test.txt" [ref=e139] [cursor=pointer]:
+        - /url: download/remote_file_upload_test.txt
+      - link "Fee Receipt.pdf" [ref=e140] [cursor=pointer]:
+        - /url: download/Fee Receipt.pdf
+      - link "CV.pages" [ref=e141] [cursor=pointer]:
+        - /url: download/CV.pages
+      - link "random_data.txt" [ref=e142] [cursor=pointer]:
+        - /url: download/random_data.txt
+      - link "Abhi.jpg" [ref=e143] [cursor=pointer]:
+        - /url: download/Abhi.jpg
+      - link "QnA KPI Tree - koma.csv" [ref=e144] [cursor=pointer]:
+        - /url: download/QnA KPI Tree - koma.csv
+      - link "ZZZZZ2237655548.docx" [ref=e145] [cursor=pointer]:
+        - /url: download/ZZZZZ2237655548.docx
+      - link "sample.pdf" [ref=e146] [cursor=pointer]:
+        - /url: download/sample.pdf
+      - link "kote.jpg" [ref=e147] [cursor=pointer]:
+        - /url: download/kote.jpg
+      - link "Login_page.html" [ref=e148] [cursor=pointer]:
+        - /url: download/Login_page.html
+      - link "enhanced_test_file.txt" [ref=e149] [cursor=pointer]:
+        - /url: download/enhanced_test_file.txt
+      - link "tmpxxo6nh2p.txt" [ref=e150] [cursor=pointer]:
+        - /url: download/tmpxxo6nh2p.txt
+      - link "dojo-temp-1762852356159-dojo-temp-1762468093735-jedox gmbh.pdf" [ref=e151] [cursor=pointer]:
+        - /url: download/dojo-temp-1762852356159-dojo-temp-1762468093735-jedox gmbh.pdf
+      - link "tmpiov1srjm.txt" [ref=e152] [cursor=pointer]:
+        - /url: download/tmpiov1srjm.txt
+      - link "Employees1.xlsx" [ref=e153] [cursor=pointer]:
+        - /url: download/Employees1.xlsx
+      - link "webOrder_Login_AllScenario.xlsx" [ref=e154] [cursor=pointer]:
+        - /url: download/webOrder_Login_AllScenario.xlsx
+      - link "ANCPoox1976096960.pptx" [ref=e155] [cursor=pointer]:
+        - /url: download/ANCPoox1976096960.pptx
+      - link "testfile.txt" [ref=e156] [cursor=pointer]:
+        - /url: download/testfile.txt
+      - link "ZZZZZ3934209244.sql" [ref=e157] [cursor=pointer]:
+        - /url: download/ZZZZZ3934209244.sql
+  - generic [ref=e159]:
+    - separator [ref=e160]
+    - generic [ref=e161]:
+      - text: Powered by
+      - link "Elemental Selenium" [ref=e162] [cursor=pointer]:
+        - /url: http://elementalselenium.com/
+```

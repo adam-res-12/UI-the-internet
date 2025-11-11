@@ -567,6 +567,64 @@ test('shiftingList', async ({page}) => {
     expect(match).toBeTruthy();
   });
 
+//Sortable Data Tables (not really testing anything here, just extracting info)
+// table1 - just outputs table using 'tr' and nth as locator
+// tbale2 - same as before but different nth values
+// firstName - gets a first name from table2 using '.first-name' class and nth
+test('table1', async ({page}) => {
+    await page.getByRole('link', {name: 'Sortable Data Tables'}).click();
+
+    for (let i=0; i<5; i++) {
+        const stuff = page.locator('tr').nth(i);
+        const textStuff = await stuff.innerText();
+        console.log(textStuff);
+    }
+});
+
+test('table2', async ({page}) => {
+    await page.getByRole('link', {name: 'Sortable Data Tables'}).click();
+
+    for (let i=6; i<10; i++) {
+        const stuff = page.locator('tr').nth(i);
+        const textStuff = await stuff.innerText();
+        console.log(textStuff);
+    }
+});
+
+test('firstName', async ({page}) => {
+    await page.getByRole('link', {name: 'Sortable Data Tables'}).click();
+
+    const john = page.locator('.first-name').nth(1);
+    const textJohn = await john.innerText();
+    console.log(textJohn);
+    expect(john).toBeVisible;
+});
+
+//Status Codes
+// statusCode - checks that each link shows the correct number, then checks that the 'here' link goes to the correct page
+test('statusCode', async ({page}) => {
+    await page.getByRole('link', {name: 'Status Codes'}).click();
+
+    await page.getByRole('link', {name: '200'}).click();
+    await expect(page.locator('p')).toHaveText('This page returned a 200 status code. For a definition and common list of HTTP status codes, go here');
+    
+    await page.goBack();
+    await page.getByRole('link', {name: '301'}).click();
+    await expect(page.locator('p')).toHaveText('This page returned a 301 status code. For a definition and common list of HTTP status codes, go here');
+    
+    await page.goBack();
+    await page.getByRole('link', {name: '404'}).click();
+    await expect(page.locator('p')).toHaveText('This page returned a 404 status code. For a definition and common list of HTTP status codes, go here');
+    
+    await page.goBack();
+    await page.getByRole('link', {name: '500'}).click();
+    await expect(page.locator('p')).toHaveText('This page returned a 500 status code. For a definition and common list of HTTP status codes, go here');
+
+    await page.goBack();
+    await page.getByRole('link', {name: 'here'}).click();
+    await expect(page.locator('h1')).toHaveText('Hypertext Transfer Protocol (HTTP) Status Code Registry');
+});
+
 //Typos
 // checkTypo - checks text shows what is intended, reloads if it does and checks again, if not match gives typo and its location along with what should be shown
 test('checkTypo', async ({page}) => {

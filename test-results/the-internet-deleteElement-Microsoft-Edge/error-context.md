@@ -1,0 +1,153 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - link "Fork me on GitHub":
+      - /url: https://github.com/tourdedave/the-internet
+      - img "Fork me on GitHub"
+    - generic [ref=e5]:
+      - heading "Welcome to the-internet" [level=1] [ref=e6]
+      - heading "Available Examples" [level=2] [ref=e7]
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "A/B Testing" [ref=e10] [cursor=pointer]:
+            - /url: /abtest
+        - listitem [ref=e11]:
+          - link "Add/Remove Elements" [ref=e12] [cursor=pointer]:
+            - /url: /add_remove_elements/
+        - listitem [ref=e13]:
+          - link "Basic Auth" [ref=e14] [cursor=pointer]:
+            - /url: /basic_auth
+          - text: "(user and pass: admin)"
+        - listitem [ref=e15]:
+          - link "Broken Images" [ref=e16] [cursor=pointer]:
+            - /url: /broken_images
+        - listitem [ref=e17]:
+          - link "Challenging DOM" [ref=e18] [cursor=pointer]:
+            - /url: /challenging_dom
+        - listitem [ref=e19]:
+          - link "Checkboxes" [ref=e20] [cursor=pointer]:
+            - /url: /checkboxes
+        - listitem [ref=e21]:
+          - link "Context Menu" [ref=e22] [cursor=pointer]:
+            - /url: /context_menu
+        - listitem [ref=e23]:
+          - link "Digest Authentication" [ref=e24] [cursor=pointer]:
+            - /url: /digest_auth
+          - text: "(user and pass: admin)"
+        - listitem [ref=e25]:
+          - link "Disappearing Elements" [ref=e26] [cursor=pointer]:
+            - /url: /disappearing_elements
+        - listitem [ref=e27]:
+          - link "Drag and Drop" [ref=e28] [cursor=pointer]:
+            - /url: /drag_and_drop
+        - listitem [ref=e29]:
+          - link "Dropdown" [ref=e30] [cursor=pointer]:
+            - /url: /dropdown
+        - listitem [ref=e31]:
+          - link "Dynamic Content" [ref=e32] [cursor=pointer]:
+            - /url: /dynamic_content
+        - listitem [ref=e33]:
+          - link "Dynamic Controls" [ref=e34] [cursor=pointer]:
+            - /url: /dynamic_controls
+        - listitem [ref=e35]:
+          - link "Dynamic Loading" [ref=e36] [cursor=pointer]:
+            - /url: /dynamic_loading
+        - listitem [ref=e37]:
+          - link "Entry Ad" [ref=e38] [cursor=pointer]:
+            - /url: /entry_ad
+        - listitem [ref=e39]:
+          - link "Exit Intent" [ref=e40] [cursor=pointer]:
+            - /url: /exit_intent
+        - listitem [ref=e41]:
+          - link "File Download" [ref=e42] [cursor=pointer]:
+            - /url: /download
+        - listitem [ref=e43]:
+          - link "File Upload" [ref=e44] [cursor=pointer]:
+            - /url: /upload
+        - listitem [ref=e45]:
+          - link "Floating Menu" [ref=e46] [cursor=pointer]:
+            - /url: /floating_menu
+        - listitem [ref=e47]:
+          - link "Forgot Password" [ref=e48] [cursor=pointer]:
+            - /url: /forgot_password
+        - listitem [ref=e49]:
+          - link "Form Authentication" [ref=e50] [cursor=pointer]:
+            - /url: /login
+        - listitem [ref=e51]:
+          - link "Frames" [ref=e52] [cursor=pointer]:
+            - /url: /frames
+        - listitem [ref=e53]:
+          - link "Geolocation" [ref=e54] [cursor=pointer]:
+            - /url: /geolocation
+        - listitem [ref=e55]:
+          - link "Horizontal Slider" [ref=e56] [cursor=pointer]:
+            - /url: /horizontal_slider
+        - listitem [ref=e57]:
+          - link "Hovers" [ref=e58] [cursor=pointer]:
+            - /url: /hovers
+        - listitem [ref=e59]:
+          - link "Infinite Scroll" [ref=e60] [cursor=pointer]:
+            - /url: /infinite_scroll
+        - listitem [ref=e61]:
+          - link "Inputs" [ref=e62] [cursor=pointer]:
+            - /url: /inputs
+        - listitem [ref=e63]:
+          - link "JQuery UI Menus" [ref=e64] [cursor=pointer]:
+            - /url: /jqueryui/menu
+        - listitem [ref=e65]:
+          - link "JavaScript Alerts" [ref=e66] [cursor=pointer]:
+            - /url: /javascript_alerts
+        - listitem [ref=e67]:
+          - link "JavaScript onload event error" [ref=e68] [cursor=pointer]:
+            - /url: /javascript_error
+        - listitem [ref=e69]:
+          - link "Key Presses" [ref=e70] [cursor=pointer]:
+            - /url: /key_presses
+        - listitem [ref=e71]:
+          - link "Large & Deep DOM" [ref=e72] [cursor=pointer]:
+            - /url: /large
+        - listitem [ref=e73]:
+          - link "Multiple Windows" [ref=e74] [cursor=pointer]:
+            - /url: /windows
+        - listitem [ref=e75]:
+          - link "Nested Frames" [ref=e76] [cursor=pointer]:
+            - /url: /nested_frames
+        - listitem [ref=e77]:
+          - link "Notification Messages" [ref=e78] [cursor=pointer]:
+            - /url: /notification_message
+        - listitem [ref=e79]:
+          - link "Redirect Link" [ref=e80] [cursor=pointer]:
+            - /url: /redirector
+        - listitem [ref=e81]:
+          - link "Secure File Download" [ref=e82] [cursor=pointer]:
+            - /url: /download_secure
+        - listitem [ref=e83]:
+          - link "Shadow DOM" [ref=e84] [cursor=pointer]:
+            - /url: /shadowdom
+        - listitem [ref=e85]:
+          - link "Shifting Content" [ref=e86] [cursor=pointer]:
+            - /url: /shifting_content
+        - listitem [ref=e87]:
+          - link "Slow Resources" [ref=e88] [cursor=pointer]:
+            - /url: /slow
+        - listitem [ref=e89]:
+          - link "Sortable Data Tables" [ref=e90] [cursor=pointer]:
+            - /url: /tables
+        - listitem [ref=e91]:
+          - link "Status Codes" [ref=e92] [cursor=pointer]:
+            - /url: /status_codes
+        - listitem [ref=e93]:
+          - link "Typos" [ref=e94] [cursor=pointer]:
+            - /url: /typos
+        - listitem [ref=e95]:
+          - link "WYSIWYG Editor" [ref=e96] [cursor=pointer]:
+            - /url: /tinymce
+  - generic [ref=e98]:
+    - separator [ref=e99]
+    - generic [ref=e100]:
+      - text: Powered by
+      - link "Elemental Selenium" [ref=e101] [cursor=pointer]:
+        - /url: http://elementalselenium.com/
+```
